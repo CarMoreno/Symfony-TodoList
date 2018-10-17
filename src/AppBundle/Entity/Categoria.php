@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
-
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -104,5 +104,16 @@ class Categoria
     {
         return $this->descripcion;
     }
+
+    /**
+     * Este método hace parte de los metodos especiales de php, lo que hacemos es reescribirlo
+     * para mostrar una representacion como string de esta clase, este label se usará posteriormente
+     * en los nombres de la lista desplegable en el formulario de tareas.
+     * 
+    */
+    public function __toString(){
+        return $this->nombre;
+    }
+
 }
 

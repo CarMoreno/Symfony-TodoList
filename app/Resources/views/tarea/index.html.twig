@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tareas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titulo</th>
+                <th>Descripcion</th>
+                <th>Fecha</th>
+                <th>Imagen</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tarea in tareas %}
+            <tr>
+                <td><a href="{{ path('tarea_show', { 'id': tarea.id }) }}">{{ tarea.id }}</a></td>
+                <td>{{ tarea.titulo }}</td>
+                <td>{{ tarea.descripcion }}</td>
+                <td>{% if tarea.fecha %}{{ tarea.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ tarea.imagen }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tarea_show', { 'id': tarea.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tarea_edit', { 'id': tarea.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tarea_new') }}">Create a new tarea</a>
+        </li>
+    </ul>
+{% endblock %}
