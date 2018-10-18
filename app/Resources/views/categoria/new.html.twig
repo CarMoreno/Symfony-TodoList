@@ -1,16 +1,21 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Categorium creation</h1>
-
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('categoria_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="row">
+		<div class=" col  s12 m8 offset-m2 l6 offset-l3">
+			<div class="card">
+				<div class="card-content">
+					<span class="card-title black-text"><strong>¡Crea una nueva categoría!</strong></span>
+					<p>Crea una nueva categoría para tus tareas.</p>
+                    <a class="right-align blue-text" href="{{ path('categoria_index') }}">Regresar a lista de categorías</a>
+					    {{ form_start(form) }}
+						{{ form_widget(form) }}
+				</div>
+				<div class="card-action">
+					<button class="btn waves-effect waves-light  blue" type="submit">Crear</button>
+				</div>
+					{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
 {% endblock %}

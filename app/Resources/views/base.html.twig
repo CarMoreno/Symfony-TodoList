@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <title>
+            {% block title %}TodoListApp{% endblock %}
+        </title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('assets/css/materialize.min.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <header>
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper">
+                    <a href="#" class="brand-logo left"><a href="{{ path('tarea_index') }}" class="brand-logo"><i class="material-icons">home</i>Logo</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right  hide-on-med-and-down">
+                        <li class="activate"><a href="{{ path('tarea_index') }}"><i class="material-icons left">library_books</i>Tareas</a></li>
+                        <li><a href="{{ path('categoria_index') }}"><i class="material-icons left">storage</i>Categorias</a></li>
+                    </ul>
+                    </div>
+                </nav>
+            </div>
+            <ul class="sidenav" id="mobile-demo">
+                <li class="activate"><a href="{{ path('tarea_index') }}"><i class="material-icons left">library_books</i>Tareas</a></li>
+                <li><a href="{{ path('categoria_index') }}"><i class="material-icons left">storage</i>Categorias</a></li>
+            </ul>
+        {# fin menu principal #}
+        </header>
+        <main>
+            {% block body %}{% endblock %}
+        </main>        
+
+        {#Footer#}
+        <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">ToDoList App</h5>
+                        <p class="grey-text text-lighten-4">Una aplicacion donde puedes gestionar tus tareas
+                            <i class="far fa-grin-beam"></i>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2018 Copyright Todos los derechos reservados
+                </div>
+            </div>
+        </footer>
+        {# fin Footer #}
+        {% block javascripts %}
+            <script src="{{ asset('assets/js/jquery3.3.1.min.js') }}"></script>
+            <script src="{{ asset('assets/js/materialize.min.js') }}"></script>
+            <script>
+                $(document).ready(function(){
+                    $('.sidenav').sidenav();
+                    $('select').formSelect();
+                });
+            </script>
+        {% endblock %}
     </body>
+
 </html>

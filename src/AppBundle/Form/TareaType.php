@@ -6,6 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Tarea Type
+ * 
+ * @author: Carlos Andrés Moreno Vélez
+ * 
+ * Esta clase gestionará la configuracion y renderizacion para el formulario de Tarea.
+ */
+
 class TareaType extends AbstractType
 {
     /**
@@ -13,7 +21,7 @@ class TareaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titulo')->add('descripcion')->add('fecha')->add('imagen')->add('categoria');
+        $builder->add('titulo')->add('descripcion')->add('imagen')->add('categoria');
     }
     
     /**

@@ -1,41 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Categorias list</h1>
+<div class="row">
+    <div class=" col  s12 m8 offset-m2 l6 offset-l3">
+        <h4>Lista de cateogrías</h4>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for categorium in categorias %}
-            <tr>
-                <td><a href="{{ path('categoria_show', { 'id': categorium.id }) }}">{{ categorium.id }}</a></td>
-                <td>{{ categorium.nombre }}</td>
-                <td>{{ categorium.descripcion }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categoria_show', { 'id': categorium.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categoria_edit', { 'id': categorium.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('categoria_new') }}">Create a new categorium</a>
-        </li>
-    </ul>
+        <p>Estas son todas las cateogrías que has creado, puedes <a href="{{ path('categoria_new') }}">crear otra, si quieres</a></p>.
+        <ul class="collection">
+            {% for categorium in categorias %}
+                <li class="collection-item avatar">
+                    <i class="material-icons circle green">play_arrow</i>
+                    <span class="title">{{categorium.nombre}}</span>
+                    <p> {{categorium.descripcion}}</p>
+                    <div class="secondary-content">
+                        <a href="{{ path('categoria_show', { 'id': categorium.id }) }}"><i class="material-icons">remove_red_eye</i></a>
+                        <a href="{{ path('categoria_edit', { 'id': categorium.id }) }}"><i class="material-icons">edit</i></a>
+                        
+                    </a>
+                </li>
+            {% endfor %}
+            
+        </ul>
+    </div>
+</div>
 {% endblock %}

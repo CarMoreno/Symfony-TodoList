@@ -6,6 +6,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+/**
+ * Tarea Type
+ * 
+ * @author: Carlos Andrés Moreno Vélez
+ * 
+ * Esta clase gestionará la configuracion y renderizacion para el formulario de catgorias.
+ */
 class CategoriaType extends AbstractType
 {
     /**

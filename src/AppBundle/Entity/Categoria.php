@@ -5,7 +5,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Categoria
+ * Entidad Categoria
+ * @author: Carlos Andrés Moreno Vélez
+ * 
+ * Entidad que representa a una Categoría. (Plain object PHP)
  *
  * @ORM\Table(name="categoria")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoriaRepository")

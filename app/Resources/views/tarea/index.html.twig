@@ -1,7 +1,57 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tareas list</h1>
+<div class="row">
+    <div class=" col  s12 m8 offset-m2 l6 offset-l3">
+        <h4>Lista de tareas</h4>
+        <p>Estas son todas las tareas que has creado, puedes <a href="{{ path('tarea_new') }}">crear otra, si quieres</a></p>.
+        <div class="row">
+        
+            {% for tarea in tareas  %}{# object_list es el nombre que django da por default a la lista donde estan los objetos (en este caso libros) #}
+                    {# los libros de la bd se muestran en una tarjeta de imagen #}
+            {# <div class="col s12 m4">
+                <div class="card horizontal blue-grey lighten-3">
+                    <div class="card-image">
+                        <img src="http://lorempixel.com/200/200" width="100px" height="200px">
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            <li><strong>Título:</strong>{{tarea.titulo}}</li>
+                            <li class="truncate"><strong>Descripción:</strong>{{tarea.descripcion}}</li>
+                        </ul>
+                    </div>
+                    <div class="card-action">
+                        <a href="{{ path('tarea_edit', { 'id': tarea.id }) }}"><span class="blue-grey-text">Editar</span></a>
+                        <a href="{{ path('tarea_show', { 'id': tarea.id }) }}"><span class="blue-grey-text">Ver Detalles</span></a>
+                    </div>
+                </div>    
+            </div> #}
+
+            <div class="col s12 m6 l6">
+                <div class="card horizontal">
+                    <div class="card-image">
+                        <img src="https://lorempixel.com/300/300" height="200px" width="100px">
+                    </div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <h6>{{tarea.titulo}}</h6>
+                            <p>{{tarea.descripcion}}</p>
+                        </div>
+                        <div class="card-action">
+                            <ul>
+                                <li><a href="{{ path('tarea_edit', { 'id': tarea.id }) }}"><span class="blue-grey-text">Editar</span></a></li>
+                                <li><a href="{{ path('tarea_show', { 'id': tarea.id }) }}"><span class="blue-grey-text">Detalles</span></a></li>
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            {% endfor %}
+        </div>
+    </div>
+</div>
+    {# <h1>Lista de tareas</h1>
 
     <table>
         <thead>
@@ -25,10 +75,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('tarea_show', { 'id': tarea.id }) }}">show</a>
+                            <a href="{{ path('tarea_show', { 'id': tarea.id }) }}">Detalle</a>
                         </li>
                         <li>
-                            <a href="{{ path('tarea_edit', { 'id': tarea.id }) }}">edit</a>
+                            <a href="{{ path('tarea_edit', { 'id': tarea.id }) }}">Editar</a>
                         </li>
                     </ul>
                 </td>
@@ -39,7 +89,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('tarea_new') }}">Create a new tarea</a>
+            <a href="{{ path('tarea_new') }}">¡Crea una nueva tarea!</a>
         </li>
-    </ul>
+    </ul> #}
 {% endblock %}

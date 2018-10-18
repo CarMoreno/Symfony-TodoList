@@ -1,21 +1,32 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Tarea edit</h1>
-
-    {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" value="Edit" />
-    {{ form_end(edit_form) }}
-
-    <ul>
-        <li>
-            <a href="{{ path('tarea_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+<div class="row">
+    <div class=" col  s12 m8 offset-m2 l6 offset-l3">
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title black-text"><strong>¡Edita una tarea!</strong></span>
+                <p>Modifica una tarea existente</p>
+                    {{ form_start(edit_form) }}
+                    {{ form_widget(edit_form) }}
+            </div>
+            <div class="card-action">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn waves-effect waves-light  blue" type="submit">Editar</button>
+                    {{ form_end(edit_form) }}
+                    </div>
+                    <div class="col">
+                        {{ form_start(delete_form) }}
+                            <button class="btn waves-effect waves-light  blue" type="submit">Eliminar</button>
+                        {{ form_end(delete_form) }}
+                    </div>
+                    <div class="col">
+                        <a class="right-align blue-text" href="{{ path('tarea_index') }}">Volver a lista de tareas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

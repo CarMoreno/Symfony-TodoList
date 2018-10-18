@@ -9,13 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
 
 /**
  * Tarea controller.
- *
+ * Este controlador se encarga de realizar los distintos actions necesarios para el proceso de CRUD
+ * de Tareas.
  * @Route("tarea")
  */
 class TareaController extends Controller
 {
     /**
-     * Lists all tarea entities.
+     * Lista todas las tareas.
      *
      * @Route("/", name="tarea_index")
      * @Method("GET")
@@ -32,7 +33,7 @@ class TareaController extends Controller
     }
 
     /**
-     * Creates a new tarea entity.
+     * Crea una nueva tarea.
      *
      * @Route("/new", name="tarea_new")
      * @Method({"GET", "POST"})
@@ -48,7 +49,7 @@ class TareaController extends Controller
             $em->persist($tarea);
             $em->flush();
 
-            return $this->redirectToRoute('tarea_show', array('id' => $tarea->getId()));
+            return $this->redirectToRoute('tarea_index');
         }
 
         return $this->render('tarea/new.html.twig', array(
@@ -58,7 +59,7 @@ class TareaController extends Controller
     }
 
     /**
-     * Finds and displays a tarea entity.
+     * Encuentra y muestra una tarea, segun su ID
      *
      * @Route("/{id}", name="tarea_show")
      * @Method("GET")
@@ -74,7 +75,7 @@ class TareaController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing tarea entity.
+     * Muestra el formulario para editar una tarea existente
      *
      * @Route("/{id}/edit", name="tarea_edit")
      * @Method({"GET", "POST"})
@@ -88,7 +89,7 @@ class TareaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('tarea_edit', array('id' => $tarea->getId()));
+            return $this->redirectToRoute('tarea_index');
         }
 
         return $this->render('tarea/edit.html.twig', array(
@@ -99,7 +100,7 @@ class TareaController extends Controller
     }
 
     /**
-     * Deletes a tarea entity.
+     * Elimina una tarea
      *
      * @Route("/{id}", name="tarea_delete")
      * @Method("DELETE")
@@ -119,9 +120,9 @@ class TareaController extends Controller
     }
 
     /**
-     * Creates a form to delete a tarea entity.
+     * 
      *
-     * @param Tarea $tarea The tarea entity
+     * @param Tarea la tarea a eliminar
      *
      * @return \Symfony\Component\Form\Form The form
      */

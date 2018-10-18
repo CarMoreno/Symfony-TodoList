@@ -8,14 +8,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Categorium controller.
+ * Categoria controller.
+ * Este controlador se encarga de realizar los distintos actions necsearios para el proceso de CRUD
+ * de Cateogrías.
+ * 
+ * @author: Carlos Andrés Moreno Vélez
  *
  * @Route("categoria")
  */
 class CategoriaController extends Controller
 {
     /**
-     * Lists all categorium entities.
+     * Lista todas las categorias
      *
      * @Route("/", name="categoria_index")
      * @Method("GET")
@@ -32,7 +36,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Creates a new categorium entity.
+     * Crea una nueva categoria
      *
      * @Route("/new", name="categoria_new")
      * @Method({"GET", "POST"})
@@ -48,7 +52,7 @@ class CategoriaController extends Controller
             $em->persist($categoria);
             $em->flush();
 
-            return $this->redirectToRoute('categoria_show', array('id' => $categoria->getId()));
+            return $this->redirectToRoute('categoria_index');
         }
 
         return $this->render('categoria/new.html.twig', array(
@@ -58,7 +62,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Finds and displays a categorium entity.
+     * Encuentra una nueva categoria y la muestra.
      *
      * @Route("/{id}", name="categoria_show")
      * @Method("GET")
@@ -74,7 +78,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing categorium entity.
+     * Mostramos un formulario para editar una categoria existente
      *
      * @Route("/{id}/edit", name="categoria_edit")
      * @Method({"GET", "POST"})
@@ -88,7 +92,7 @@ class CategoriaController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('categoria_edit', array('id' => $categoria->getId()));
+            return $this->redirectToRoute('categoria_index');
         }
 
         return $this->render('categoria/edit.html.twig', array(
@@ -99,7 +103,7 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Deletes a categorium entity.
+     * Eliminamos una categoria existente
      *
      * @Route("/{id}", name="categoria_delete")
      * @Method("DELETE")
@@ -119,9 +123,9 @@ class CategoriaController extends Controller
     }
 
     /**
-     * Creates a form to delete a categorium entity.
+     * 
      *
-     * @param Categoria $categoria The categorium entity
+     * @param Categoria $categoria la categoria a eliminar.
      *
      * @return \Symfony\Component\Form\Form The form
      */

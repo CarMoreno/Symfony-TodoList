@@ -5,7 +5,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Tarea
+ * Entidad Tarea
+ * @author: Carlos Andrés Moreno Vélez
+ * 
+ * Entidad que representa a una Tarea. (Plain object PHP)
  *
  * @ORM\Table(name="tarea")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TareaRepository")
@@ -54,6 +57,11 @@ class Tarea
      * @ORM\JoinColumn(name="categoria_id", referencedColumnName="id")
      */
     private $categoria;
+
+
+    public function __construct(){
+        $this->fecha = new \DateTime();
+    }
 
     /**
      * Get id
