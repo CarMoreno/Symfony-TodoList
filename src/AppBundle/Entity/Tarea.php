@@ -165,6 +165,17 @@ class Tarea
         return $this->categoria;
     }
 
-
+    /**
+     * Set categoria
+     *
+     * @param \AppBundle\Entity\Categoria $categoria
+     *
+     * @return Tarea
+     */
+    public function setCategoria(\AppBundle\Entity\Categoria $categoria = null)
+    {
+        $this->categoria = $categoria;
+        return $this;
+    }
     
 }
