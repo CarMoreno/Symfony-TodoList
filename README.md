@@ -4,9 +4,7 @@ Lista Tareas Symfony
 ## Tecnologías usadas
 
 Para este proyecto, se utilizó Symfony 3.4.0, junto con PHP 6.0, además se hizo uso del
-framework Bootstrap 4 para el manejo de estilos y comportamiento responsive de la app.
-
-Se utilizó la librería bootstrap-typehead junto con JQuery para realizar la busqueda de tareas por autocomplete, por medio de peticiones Ajax.
+framework Materialize Css para el manejo de estilos y comportamiento responsive de la app. Para las peticiones Ajax se uso JQuery 3.3.
 
 ## Modelo
 
