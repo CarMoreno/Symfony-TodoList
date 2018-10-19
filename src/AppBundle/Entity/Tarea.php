@@ -29,21 +29,13 @@ class Tarea
      *
      * @ORM\Column(name="titulo", type="string", length=255)
      * /**
-     * @Assert\Regex(
-     *     pattern="/^[\w]+$/",
-     *     match=false,
-     *     message="Utiliza solo letras y números"
-     * )
+     * @Assert\Type("string")
      */
     private $titulo;
 
     /**
      * @var string
-     *@Assert\Regex(
-     *     pattern="/^[\w]+$/",
-     *     match=false,
-     *     message="Utiliza solo letras y números"
-     *)
+     * @Assert\Type("string")
      * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
