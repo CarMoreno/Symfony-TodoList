@@ -37,7 +37,7 @@ La aplicación está desplegada y puede ser accedida haciendo click [aquí](http
 
 ## Vista
 
-Para las vistas decidí usar un framework css llamado Materialize.css, es un framework realizado por google y que basado en *Material design*, responsivo y le dá a la aplicación un aire más mobil.
+Para las vistas decidí usar un framework css llamado Materialize.css, es un framework hecho por google y basado en *Material design*, responsivo y le dá a la aplicación un aire más mobil.
 
 Las siguientes son screenshots de la aplicacion en version móbil.
 
