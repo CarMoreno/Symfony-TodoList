@@ -18,7 +18,7 @@ La aplicación cuenta con dos entidades, Categoría y Tarea. Una categoría pued
 
 A continuación se presenta el diagrama ER (Entidad relación) del modelo propuesto:
 
-![imagen_modelo]()
+![imagen](https://i.imgur.com/7Jyk4vS.png)
 
 La entidad Tarea dispone de:
 
@@ -34,3 +34,5 @@ Mientras que la entidad Categoría tiene los siguientes atributos.
 1. id.
 2. nombre.
 3. descripcion.
+
+La aplicación está desplegada y puede ser accedida haciendo click [aquí](http://carlosandresmorenovelez.000webhostapp.com/tarea)
