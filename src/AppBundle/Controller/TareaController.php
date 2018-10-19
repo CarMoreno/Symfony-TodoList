@@ -5,8 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Tarea;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Tarea controller.
  * Este controlador se encarga de realizar los distintos actions necesarios para el proceso de CRUD
@@ -15,6 +17,43 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component
  */
 class TareaController extends Controller
 {
+
+    /**
+     * Lista todas las tareas.
+     *
+     * @Route("/search", name="search_autocomplete")
+     * @Method("GET")
+     */
+    public function searchAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $requestString = $request->get('consulta');
+        $entities =  $em->getRepository('AppBundle:Tarea')->findEntitiesByString($requestString);
+        
+
+        if(!$entities) {
+            $result['entities']['error'] = "keine Einträge gefunden";
+        } 
+        else {
+            $result['entities'] = $this->getRealEntities($entities);
+        }
+        return new JsonResponse($result);
+    }
+
+    /**
+     * 
+     */
+    public function getRealEntities($entities){
+        foreach ($entities as $index => $entity){
+            foreach($entity as $key => $value) {
+                if($key == 'id') {
+                    $entity['url'] = $this->generateUrl('tarea_show', array('id' => $value), UrlGeneratorInterface::ABSOLUTE_URL);
+                }
+                $entities[$index] = $entity;
+            }
+        }
+        return $entities;
+    }
     /**
      * Lista todas las tareas.
      *
@@ -31,7 +70,6 @@ class TareaController extends Controller
             'tareas' => $tareas,
         ));
     }
-
     /**
      * Crea una nueva tarea.
      *

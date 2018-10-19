@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,14 +27,22 @@ class Categoria
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern="/^[\w]+$/",
+     *     match=false,
+     *     message="Utiliza solo letras y números"
+     * )
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern="/^[\w]+$/",
+     *     match=false,
+     *     message="Utiliza solo letras y números"
+     * )
      * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;

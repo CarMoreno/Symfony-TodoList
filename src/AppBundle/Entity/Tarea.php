@@ -1,7 +1,7 @@
 <?php
 
 namespace AppBundle\Entity;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,12 +28,22 @@ class Tarea
      * @var string
      *
      * @ORM\Column(name="titulo", type="string", length=255)
+     * /**
+     * @Assert\Regex(
+     *     pattern="/^[\w]+$/",
+     *     match=false,
+     *     message="Utiliza solo letras y números"
+     * )
      */
     private $titulo;
 
     /**
      * @var string
-     *
+     *@Assert\Regex(
+     *     pattern="/^[\w]+$/",
+     *     match=false,
+     *     message="Utiliza solo letras y números"
+     *)
      * @ORM\Column(name="descripcion", type="string", length=255, nullable=true)
      */
     private $descripcion;
@@ -44,13 +54,6 @@ class Tarea
      * @ORM\Column(name="fecha", type="datetime")
      */
     private $fecha;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="imagen", type="string", length=255)
-     */
-    private $imagen;
 
     /**
      * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="tareas")
@@ -159,29 +162,6 @@ class Tarea
         return $this;
     }
 
-    /**
-     * Get imagen
-     *
-     * @return string
-     */
-    public function getImagen()
-    {
-        return $this->imagen;
-    }
-
-    /**
-     * Set categoria
-     *
-     * @param \AppBundle\Entity\Categoria $categoria
-     *
-     * @return Tarea
-     */
-    public function setCategoria(\AppBundle\Entity\Categoria $categoria = null)
-    {
-        $this->categoria = $categoria;
-
-        return $this;
-    }
 
     /**
      * Get categoria

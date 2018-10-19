@@ -18,7 +18,7 @@
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper">
-                    <a href="#" class="brand-logo left"><a href="{{ path('tarea_index') }}" class="brand-logo"><i class="material-icons">home</i>Logo</a>
+                    <a href="#" class="brand-logo left"><a href="{{ path('tarea_index') }}" class="brand-logo"><i class="material-icons">home</i>ToDoApp</a>
                     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul id="nav-mobile" class="right  hide-on-med-and-down">
                         <li class="activate"><a href="{{ path('tarea_index') }}"><i class="material-icons left">library_books</i>Tareas</a></li>
@@ -59,12 +59,13 @@
         {% block javascripts %}
             <script src="{{ asset('assets/js/jquery3.3.1.min.js') }}"></script>
             <script src="{{ asset('assets/js/materialize.min.js') }}"></script>
+            <!--Guardamos el path de nuestro controller en una variable js para accederla despues-->
             <script>
-                $(document).ready(function(){
-                    $('.sidenav').sidenav();
-                    $('select').formSelect();
-                });
+                var url_search = "{{ path('search_autocomplete')|escape('js') }}";
             </script>
+            <script src="{{ asset('assets/js/autocomplete.js') }}"></script>
+            
+            
         {% endblock %}
     </body>
 

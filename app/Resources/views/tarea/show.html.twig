@@ -1,46 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {# <h1>Tarea</h1>
-
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ tarea.id }}</td>
-            </tr>
-            <tr>
-                <th>Titulo</th>
-                <td>{{ tarea.titulo }}</td>
-            </tr>
-            <tr>
-                <th>Descripcion</th>
-                <td>{{ tarea.descripcion }}</td>
-            </tr>
-            <tr>
-                <th>Fecha</th>
-                <td>{% if tarea.fecha %}{{ tarea.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Imagen</th>
-                <td>{{ tarea.imagen }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('tarea_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('tarea_edit', { 'id': tarea.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul> #}
     <div class="row">
         <div class=" col  s12 m8 offset-m2 l6 offset-l3">
             <div class="card">

@@ -10,4 +10,14 @@ namespace AppBundle\Repository;
  */
 class TareaRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findEntitiesByString($str){
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT e.id, e.titulo, e.descripcion
+                FROM AppBundle:Tarea e
+                WHERE e.titulo LIKE :str'
+            )
+            ->setParameter('str', '%'.$str.'%')
+            ->getResult();
+    }
 }
