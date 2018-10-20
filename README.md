@@ -43,17 +43,17 @@ Las siguientes son screenshots de la aplicacion en version móbil.
 
 ### Vista desde ceular (360px de ancho):
 
-**Tareas**
+#### Tareas
 ![360pxtareas](https://i.imgur.com/533iGYN.png)
 
 
-**Categorias**
+#### Categorias
 ![360pxcategorias](https://i.imgur.com/KfBcQki.png)
 
 
-**Menú móbil**
+#### Menú móbil
 ![360pxmenu](https://i.imgur.com/d6jCnga.png)
 
 
-**Detalle de categoria**
+#### Detalle de categoria
 ![360pxcategoriasdetalle](https://i.imgur.com/EW4knin.png)
