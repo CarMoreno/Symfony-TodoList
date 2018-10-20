@@ -46,13 +46,14 @@ Las siguientes son screenshots de la aplicacion en version móbil.
 1. Tareas:
 ![360pxtareas](https://i.imgur.com/533iGYN.png)
 
-2. Categorias:
 
+2. Categorias:
 ![360pxcategorias](https://i.imgur.com/KfBcQki.png)
+
 
 3. Menu mobil:
 ![360pxmenu](https://i.imgur.com/d6jCnga.png)
 
-4. Detalle de categoria:
 
+4. Detalle de categoria:
 ![360pxcategoriasdetalle](https://i.imgur.com/EW4knin.png)
